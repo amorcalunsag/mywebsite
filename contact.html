@@ -103,11 +103,14 @@
       var mailBody = encodeURIComponent(
         "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
       );
-      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
       document.getElementById("success-message").style.display = "block";
+
+      document.getElementById("contact-form").reset();
+
       setTimeout(() => {
-  document.getElementById("success-message").style.display = "none";
-}, 3000);
+      document.getElementById("success-message").style.display = "none";
+      }, 3000);
+      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
     });
   </script>
 </body>
