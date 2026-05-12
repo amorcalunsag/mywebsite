@@ -91,27 +91,36 @@
     <p>&copy; <span id="y"></span> My Adventure Diary — Amor E. Calunsag · BSIS 2A</p>
   </footer>
   <script src="nav.js"></script>
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var to = document.getElementById("contact-form").getAttribute("data-contact-email") || "";
-      var fromName = document.getElementById("name").value.trim();
-      var fromEmail = document.getElementById("email").value.trim();
-      var body = document.getElementById("message").value.trim();
-      var subject = encodeURIComponent("My Adventure Diary — message from " + fromName);
-      var mailBody = encodeURIComponent(
-        "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
-      );
-      document.getElementById("success-message").style.display = "block";
+ <script>
+document.getElementById("y").textContent = new Date().getFullYear();
 
-      document.getElementById("contact-form").reset();
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-      setTimeout(() => {
-      document.getElementById("success-message").style.display = "none";
-      }, 3000);
-      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
-    });
-  </script>
+  var form = this;
+
+  var to = form.getAttribute("data-contact-email") || "";
+  var fromName = document.getElementById("name").value.trim();
+  var fromEmail = document.getElementById("email").value.trim();
+  var body = document.getElementById("message").value.trim();
+
+  var subject = encodeURIComponent("My Adventure Diary — message from " + fromName);
+  var mailBody = encodeURIComponent(
+    "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
+  );
+
+  // 1. Open mail app FIRST
+  window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
+
+  // 2. Then UI updates
+  document.getElementById("success-message").style.display = "block";
+
+  form.reset();
+
+  setTimeout(() => {
+    document.getElementById("success-message").style.display = "none";
+  }, 3000);
+});
+</script>
 </body>
 </html>
