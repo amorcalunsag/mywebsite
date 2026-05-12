@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mountain, beach, camping, and nature adventures with personal reflections.">
+  <title>My Adventures | My Adventure Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Page style: My Adventures -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="adventure-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">My Adventure Diary</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-list">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="main-nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="adventures.html" aria-current="page">My Adventures</a></li>
+          <li class="nav-item-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Gallery <span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="gallery-sunrise.html">Sunrise</a></li>
+              <li><a href="gallery-sky-view.html">Sky View</a></li>
+              <li><a href="gallery-wildflowers.html">Wildflowers</a></li>
+              <li><a href="gallery-mountains.html">Mountains</a></li>
+              <li><a href="gallery-forests.html">Forests</a></li>
+              <li><a href="gallery-sunset.html">Sunset</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="adventures-section" aria-labelledby="adventures-heading">
+      <header class="adventures-section-intro">
+        <h1 id="adventures-heading" class="adventures-section-title">My Adventures</h1>
+        <p class="adventures-section-lead">Four kinds of places that keep calling me back—each with its own lesson.</p>
+      </header>
+
+      <div class="card-grid adventures-list">
+      <article class="card adventure-card">
+        <div class="card-body">
+          <h2>Mountain Adventure</h2>
+          <p>
+            Everything feels lighter and easier the moment I step into the mountain hills and plains.
+            It feels calm and peaceful, and my mind reaches the highest point of clamness and 
+            relaxation.This part of nature reminds me to take pause for a while to rest. It also 
+            reminds me that I can come here whenever I need comfort. 
+          </p>
+        </div>
+        <div class="card-media">
+          <img src="/assets/mountain/mountainadventure.jpg" width="800" height="500" alt="Mountain Adventure view above clouds">
+        </div>
+      </article>
+
+      <article class="card adventure-card">
+        <div class="card-body">
+          <h2>Beach Adventure</h2>
+          <p>
+            Even a simple walk to the seashore has a great impact on me. Because it makes me feel
+            lively again after becoming drained from school activities. The limitless ocean, the 
+            peaceful surroundings, the small waves, and the cold breeze help me feel better and relax.
+          </p>
+        </div>
+        <div class="card-media">
+          <img src="/assets/beach adventure/beach2.0.jpg" width="800" height="500" alt="Beach Adventure photo with calm waves">
+        </div>
+      </article>
+
+      <article class="card adventure-card">
+        <div class="card-body">
+          <h2>Camping Experience</h2>
+          <p>
+            Everytime i say, I need space, they difinitely take me to a place where the surroundings
+            are green. The moment we gather with our friends in different way, away from gadgets and the busy world.
+            Every minutes brings chill, joy and quality time.
+          </p>
+        </div>
+        <div class="card-media">
+          <img src="/assets/beach adventure/camping.jpg" width="800" height="500" alt="Camping Adventure tent under trees">
+        </div>
+      </article>
+
+      <article class="card adventure-card">
+        <div class="card-body">
+          <h2>Nature Exploration</h2>
+          <p>
+            A quiet walk under tall tress and unclear paths, where the noise of leaves dancing in the wind,
+            the chirping of birds, and the sound of crickets can be heard. It doesn't feel lonesome; it feels
+            blessed as I noticed everthing. That everywhere in this world is abundant with living creatures.
+            It feels different when you appreciate them. 
+          </p>
+        </div>
+        <div class="card-media">
+          <img src="/assets/nature exploration/natureexploration.jpg" width="800" height="500" alt="Nature Adventure forest path with sunlight">
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <p style="margin-top: 2rem;">
+      <a class="btn btn-outline" href="gallery.html">See the gallery &amp; audio</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="y"></span> My Adventure Diary — Amor E. Calunsag · BSIS 2A</p>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

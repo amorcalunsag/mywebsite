@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact My Adventure Diary — email and social links.">
+  <title>Contact | My Adventure Diary</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Page style: Contact -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+</head>
+<body class="hide-v-scroll">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">My Adventure Diary</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-list">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="main-nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="adventures.html">My Adventures</a></li>
+          <li class="nav-item-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Gallery <span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="gallery-sunrise.html">Sunrise</a></li>
+              <li><a href="gallery-sky-view.html">Sky View</a></li>
+              <li><a href="gallery-wildflowers.html">Wildflowers</a></li>
+              <li><a href="gallery-mountains.html">Mountains</a></li>
+              <li><a href="gallery-forests.html">Forests</a></li>
+              <li><a href="gallery-sunset.html">Sunset</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="contact-hero" aria-labelledby="contact-page-heading">
+      <h1 id="contact-page-heading" class="page-title">Contact Me</h1>
+      <p class="lead">Got a question or just want to say hello? Feel free to send me a message. I'll do my best to respond as soon as possible.</p>
+    </section>
+
+    <div class="contact-layout">
+      <aside class="contact-card contact-info-card" aria-labelledby="contact-info-heading">
+        <h2 id="contact-info-heading" class="contact-card-title">Contact Information</h2>
+        <p class="contact-info-intro">Reach me directly through email or social media.</p>
+        <ul class="contact-list">
+          <i class="fa-solid fa-envelope"></i> <a href="mailto:calunsagamor@gmail.com">calunsagamor@gmail.com</a></li>
+          <br>
+          <i class="fa-brands fa-facebook"></i> <a href="http://www.facebook.com/morV1.1" target="_blank" rel="noopener noreferrer">Amor Calunsag</a></li>
+          <br>
+          <i class="fa-brands fa-instagram"></i> <a href="http://www.instagram.com/morV1.1" target="_blank" rel="noopener noreferrer">@morcey112</a></li>
+        </ul>
+      </aside>
+
+      <div class="contact-card contact-form-card">
+        <h2 class="contact-card-title">Send A Message</h2>
+        <form class="contact-form" id="contact-form" action="#" method="get" data-contact-email="calunsagamor@gmail.com">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+
+          <button type="submit">Send message</button> 
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="y"></span> My Adventure Diary — Amor E. Calunsag · BSIS 2A</p>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var to = document.getElementById("contact-form").getAttribute("data-contact-email") || "";
+      var fromName = document.getElementById("name").value.trim();
+      var fromEmail = document.getElementById("email").value.trim();
+      var body = document.getElementById("message").value.trim();
+      var subject = encodeURIComponent("My Adventure Diary — message from " + fromName);
+      var mailBody = encodeURIComponent(
+        "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
+      );
+      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
+    });
+  </script>
+</body>
+</html>
