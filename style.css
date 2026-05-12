@@ -1,0 +1,1192 @@
+/* My Adventure Diary — nature-inspired theme */
+
+:root {
+  --green-dark: #1e4d3a;
+  --green: #2d6a4f;
+  --green-light: #40916c;
+  --cream: #fefae0;
+  --brown-light: #d4a373;
+  --brown-muted: #bc6c25;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-soft: #3d3d3d;
+  --shadow: rgba(30, 77, 58, 0.12);
+  /* Space below sticky .site-header for secondary sticky bands (e.g. My Adventures title) */
+  --site-header-sticky-offset: 5.5rem;
+  /* Hero card only — swap: url("../images/your-background.jpg") */
+  --hero-bg-image: url("../assets/nature\ exploration/bg.jpg");
+}
+
+@media (max-width: 768px) {
+  :root {
+    --site-header-sticky-offset: 4.35rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top:0px; /* space for sticky header */
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+}
+
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: linear-gradient(165deg, var(--cream) 0%, #e8f5e9 45%, var(--cream) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+ 
+}
+
+.nav-dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+
+/* Header & nav — sticky primary bar stays visible while scrolling */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-shrink: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.28);
+  color: var(--white);
+  border-radius: 8px;
+}
+
+.nav-item-dropdown.is-current .nav-dropdown-toggle {
+  background-color: rgba(255, 255, 255, 0.28);
+  color: var(--green-dark);
+  border-radius: 8px;
+}
+
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  padding: 0.35rem 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-dropdown-caret::after {
+  content: "▼";
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.nav-item-dropdown.is-open .nav-dropdown-caret::after {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-caret {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-item-dropdown.is-current .nav-dropdown-toggle,
+.nav-item-dropdown.is-open .nav-dropdown-toggle {
+  border-bottom-color: rgb(255, 255, 255, 0.18);
+  color: var(--white);
+  border-radius: 8px;
+}
+
+.nav-dropdown-menu {  /*dropdown menu layout*/
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 150;
+}
+
+.nav-item-dropdown.is-open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.45rem 0.85rem;
+  color: var(--green-dark);
+  font-weight: 600;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.nav-dropdown-menu a.active,
+.nav-dropdown-menu a[aria-current="page"] {
+  background: rgba(2, 245, 172, 0.507);
+  color: var(--green-dark);
+  border-radius: 6px;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(45, 106, 79, 0.342);
+  text-decoration: none;
+  color: var(--green);
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 2px;
+}
+
+.nav-toggle-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+@media (max-width: 768px) {
+
+  .nav-item-dropdown.is-open .nav-dropdown-menu {
+    display: block;
+    position: static !important;
+    background: #279b78d0 !important;
+    border-radius: 8px;
+    padding: 0.35rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .nav-dropdown-menu a {
+    color: var(--green-dark);
+    display: block;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /*FIXED VISIBLE HOVER */
+  .nav-dropdown-menu a:hover {
+    background: #04c088 !important; /* yellow */
+    color: var(--green-dark) !important;
+  }
+
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+/* Main */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.page-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: var(--green-dark);
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+}
+
+/* Hero (home) — background image only on this card, with light overlay for readability */
+.hero {
+  background-image: linear-gradient(
+      135deg,
+      rgba(254, 250, 224, 0.88) 0%,
+      rgba(255, 255, 255, 0.82) 45%,
+      rgba(232, 245, 233, 0.86) 100%
+    ),
+    var(--hero-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  padding: 1.4rem 1.4rem;
+  margin-bottom: 1rem; 
+  box-shadow: 0 8px 32px var(--shadow);
+  border: 1px solid rgba(45, 106, 79, 0.12);
+}
+
+.hero h1 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(1.85rem, 5vw, 2.5rem);
+  color: var(--green-dark);
+  margin: 0 0 0.1rem;
+}
+
+.hero .quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--brown-muted);
+  border-left: 4px solid var(--green-light);
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0;
+}
+
+.hero .quote cite {
+  display: block;
+  margin-top: 0px;
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.10rem 1.10rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(45, 106, 79, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green-dark);
+  border: 2px solid var(--green-light);
+}
+
+.btn-outline:hover {
+  background: rgba(45, 106, 79, 0.08);
+}
+
+/* Cards (adventures) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* My Adventures page — wireframe: centered title + 2×2 grid, text left / square image right */
+.adventures-section {
+  width: 100%;
+}
+
+.adventures-section-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: var(--green-dark);
+  margin: 0 0 0.65rem;
+  text-align: center;
+}
+
+.adventures-section-lead {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.card-grid.adventures-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px var(--shadow);
+  border: 1px solid rgba(45, 106, 79, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(30, 77, 58, 0.18);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.25rem 1.35rem 1.5rem;
+}
+
+.card-body h2 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--green-dark);
+  margin: 0 0 0.5rem;
+}
+
+.card-body p {
+  margin: 0;
+  line-height: 1.0;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+/* Adventure cards: horizontal row, copy left, square image right (wireframe) */
+.adventures-list .adventure-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  min-height: 11rem;
+  background: #ecece8;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.adventures-list .adventure-card:hover {
+  box-shadow: 0 6px 20px rgba(30, 77, 58, 0.12);
+}
+
+.adventure-card .card-body {
+ 
+  min-width: 0;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1rem 1rem 1.25rem;
+}
+
+.adventure-card .card-body h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.adventure-card .card-body p {
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: justify; 
+}
+
+html, body.adventure-page {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body.adventure-page::-webkit-scrollbar {
+  display: none; /* Chrome / Edge / Safari */
+}
+
+.adventure-card .card-media {
+  flex: 0 0 auto;
+  width: 42%;
+  max-width: 11rem;
+  min-width: 7rem;
+  aspect-ratio: 1 / 1;
+  align-self: stretch;
+  max-height: 11rem;
+  margin: 0.65rem 0.65rem 0.65rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.adventure-card .card-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .card-grid.adventures-list {
+    grid-template-columns: 1fr;
+    max-width: 32rem;
+  }
+
+  .adventure-card .card-media {
+    max-width: 10rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .adventures-list .adventure-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .adventure-card {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    height: auto;
+  }
+
+  .adventure-card .card-body {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    order: 1;
+  }
+
+  .adventure-card .card-body p {
+    display: block;
+    overflow: visible;
+    -webkit-box-orient: unset;
+  }
+
+  .adventure-card .card-media {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    max-height: none;
+    aspect-ratio: 16 / 10;
+    margin: 0.75rem 0.75rem 0;
+    order: 0;
+  }
+
+  .adventure-card .card-media img {
+    aspect-ratio: 16 / 10;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    position: fixed;
+    top: 0.85rem;
+    left: 1rem;
+    z-index: 260;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 180px;
+    max-width: 70vw;
+    height: 100vh;
+    margin-left: 0;
+    padding: 4.5rem 0.75rem 1.5rem;
+    background: linear-gradient(165deg, var(--green-dark) 0%, var(--green) 100%);
+    box-shadow: none;
+    transition: left 0.25s ease;
+    z-index: 240;
+  }
+
+  .site-nav .nav-links {
+    display: flex;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .site-nav.is-open .nav-links {
+    display: flex;
+  }
+
+  .site-nav.is-open {
+    left: 0;
+    box-shadow: 12px 0 28px rgba(0, 0, 0, 0.3);
+  }
+
+  .site-nav .nav-links a {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.3rem 0;
+  }
+
+  .nav-item-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: fit-content;
+    padding: 0.3rem 0;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    width: 80%; /* mobile dropdown box width */
+    min-width: 0;
+    margin-top: 0.35rem;
+    padding: 0.35rem 0 0.15rem 0.7rem;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-dropdown-menu a {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    padding: 0.2rem 0;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: transparent;
+    color: var(--white);
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+
+/* Gallery */
+.gallery-intro {
+  margin-bottom: 2rem;
+}
+
+.gallery-section {
+  margin-bottom: 2.75rem;
+}
+
+.gallery-section h2 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--brown-light);
+  margin-bottom: 1rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.photo-grid figure {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--shadow);
+  background: var(--white);
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.photo-grid figcaption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* Audio blocks */
+.audio-block {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 3px 1px;
+  margin-top: 1rem;
+  border: 1px solid rgba(45, 106, 79, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.audio-block p {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.audio-block audio {
+  width: 100%;
+  max-width: 320px;
+  height: 30px;
+}
+
+/* Contact page — intro band above the cards (same image as home hero) */
+.contact-hero {
+  background-image: linear-gradient(
+      135deg,
+      rgba(254, 250, 224, 0.88) 0%,
+      rgba(255, 255, 255, 0.82) 45%,
+      rgba(232, 245, 233, 0.86) 100%
+    ),
+    var(--hero-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 2.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px var(--shadow);
+  border: 1px solid rgba(45, 106, 79, 0.12);
+}
+
+.contact-hero .lead {
+  text-align: center;
+  margin-bottom: 0;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About / contact */
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 699px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left side alignment */
+    gap: 1rem;
+  }
+
+  .profile-photo {
+    order: -1;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 700px) {
+  .profile {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .profile-photo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .profile-body {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.profile-body p {
+  text-align: justify;
+}
+
+.profile-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px var(--shadow);
+  border: 4px solid var(--white);
+}
+
+.profile-photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  width: 500px;
+  margin: 1rem auto 0;
+  font-size: 12px;
+}
+
+.contact-card {
+  background: var(--white);
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px var(--shadow);
+  border: 1px solid rgba(45, 106, 79, 0.1);
+}
+
+.contact-card-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 16px;
+  color: var(--green-dark);
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+.contact-info-intro {
+  margin: 0 0 1rem;
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.0;
+}
+
+.contact-info-card .contact-list {
+  margin-top: 0;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1px;
+}
+
+.contact-list li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(45, 106, 79, 0.12);
+}
+
+.contact-list a {
+  color: var(--green-dark);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.contact-list a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.contact-list li:last-child {
+  border-bottom: none;
+}
+
+/*send message*/
+.contact-form-card .contact-card-title {
+  margin-bottom:0;
+}
+
+.contact-form {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+ 
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    /* Keep the contact cards narrower on small screens */
+    width: calc(100% - 2rem);
+    max-width: 420px;
+    margin: 2.5rem auto 0;
+  }
+
+  .contact-card {
+    padding: 0.85rem 0.85rem;
+    border-radius: 10px;
+  }
+
+  .contact-card-title {
+    font-size: 14px;
+    margin-bottom: 0.55rem;
+  }
+
+  .contact-info-intro {
+    font-size: 11px;
+  }
+
+  .contact-list {
+    margin: 0;
+  }
+
+  .contact-list li {
+    padding: 0.55rem 0;
+  }
+
+  .contact-form label {
+    font-size: 11px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 11px;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .contact-form textarea {
+    min-height: 32px;
+  }
+
+  .contact-form button {
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-layout {
+    max-width: 360px;
+  }
+
+  .contact-card {
+    padding: 0.72rem 0.72rem;
+  }
+
+  .contact-card-title {
+    font-size: 13px;
+  }
+
+  .contact-list li {
+    padding: 0.48rem 0;
+  }
+
+  .contact-form label {
+    font-size: 10.5px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 10.5px;
+    padding: 0.22rem 0.30rem;
+  }
+
+  .contact-form textarea {
+    min-height: 28px;
+  }
+
+  .contact-form button {
+    padding: 0.22rem 0.52rem;
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-layout {
+    max-width: 320px;
+    width: calc(100% - 1.5rem);
+  }
+
+  .contact-card {
+    padding: 0.6rem 0.6rem;
+  }
+
+  .contact-card-title {
+    font-size: 12.5px;
+    margin-bottom: 0.45rem;
+  }
+
+  .contact-info-intro {
+    font-size: 10.5px;
+  }
+
+  .contact-form label {
+    font-size: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 10px;
+    padding: 0.18rem 0.25rem;
+  }
+
+  .contact-form textarea {
+    min-height: 24px;
+  }
+
+  .contact-form button {
+    padding: 0.18rem 0.45rem;
+    font-size: 0.95rem;
+  }
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom:0px;
+  color: var(--green-dark);
+  font-size: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0rem 0rem;
+  margin-bottom: 1px;
+  border: 1px solid rgba(45, 106, 79, 0.25);
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.contact-form textarea {
+  min-height: 40px;
+  resize: vertical;
+}
+
+.contact-form button {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 0.30rem 0.70rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.contact-form button:hover {
+  background: var(--green-dark);
+}
+
+@media (max-width: 768px) {
+  .contact-form label {
+    font-size: 11px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 11px;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .contact-form textarea {
+    min-height: 32px;
+  }
+
+  .contact-form button {
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form label {
+    font-size: 10.5px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 10.5px;
+    padding: 0.22rem 0.30rem;
+  }
+
+  .contact-form textarea {
+    min-height: 28px;
+  }
+
+  .contact-form button {
+    padding: 0.22rem 0.52rem;
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-form label {
+    font-size: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 10px;
+    padding: 0.18rem 0.25rem;
+  }
+
+  .contact-form textarea {
+    min-height: 24px;
+  }
+
+  .contact-form button {
+    padding: 0.18rem 0.45rem;
+    font-size: 0.95rem;
+  }
+}
+
+.form-hint {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-top: 0.75rem;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--green-dark);
+  color: rgba(255, 255, 255, 0.88);
+  padding:0px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.site-footer p {
+  margin: 0.35rem 0;
+}
+
+.site-footer a {
+  color: var(--brown-light);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  position: fixed;
+  z-index: 1001;
+  left: 1rem;
+  top: 1rem;
+  background: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  outline: 2px solid var(--green);
+}
+
