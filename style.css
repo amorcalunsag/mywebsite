@@ -14,7 +14,7 @@
   /* Space below sticky .site-header for secondary sticky bands (e.g. My Adventures title) */
   --site-header-sticky-offset: 5.5rem;
   /* Hero card only — swap: url("../images/your-background.jpg") */
-  --hero-bg-image: url(""../assets/nature-exploration/bg.jpg");
+  --hero-bg-image: url("../assets/nature-exploration/bg.jpg");
 }
 
 @media (max-width: 768px) {
