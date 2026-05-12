@@ -78,7 +78,10 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
 
-          <button type="submit">Send</button> 
+          <button type="submit">Send</button>
+          <p id="success-message" style="display:none; color: green; margin-top: 10px;">
+          Message sent successfully!
+          </p>
         </form>
       </div>
     </div>
@@ -101,6 +104,10 @@
         "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
       );
       window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
+      document.getElementById("success-message").style.display = "block";
+      setTimeout(() => {
+  document.getElementById("success-message").style.display = "none";
+}, 3000);
     });
   </script>
 </body>
