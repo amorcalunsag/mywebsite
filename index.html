@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore adventure photos, reflections, and motivational messages about life and nature.">
+  <title>My Adventure Diary – Personal Adventure Experiences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Page style: Home -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-hide-scroll">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">My Adventure Diary</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav-list">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="main-nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="adventures.html">My Adventures</a></li>
+          <li class="nav-item-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false"  aria-current="page">Gallery <span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+            <ul class="nav-dropdown-menu">
+              <li><a href="gallery-sunrise.html">Sunrise</a></li>
+              <li><a href="gallery-sky-view.html">Sky View</a></li>
+              <li><a href="gallery-wildflowers.html">Wildflowers</a></li>
+              <li><a href="gallery-mountains.html">Mountains</a></li>
+              <li><a href="gallery-forests.html">Forests</a></li>
+              <li><a href="gallery-sunset.html">Sunset</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Welcome to My Adventure Diary</h1>
+      <p>
+        This is a quiet corner of the web where I share hikes, shores, and small moments in nature—
+        plus a few words meant to slow your breath and lift your spirit.
+      </p>
+      <blockquote class="quote" cite="John Muir">
+        “In every walk with nature, one receives far more than he seeks.”
+        <cite>— John Muir</cite>
+      </blockquote>
+    </section>
+
+    <section aria-labelledby="home-highlights" >
+      <h1>What you’ll find here</h1>
+      <ul class="lead" style="margin-top: 0.5rem;">
+        <li><strong>My Adventures</strong> — short stories from the mountains, beach, camping, and wild places.</li>
+        <li><strong>Adventure Gallery</strong> — photos by category and short inspirational audio to play while you browse.</li>
+        <li><strong>Contact</strong> — reach out if you’d like to swap trail tips or say hello.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="y"></span> My Adventure Diary — Amor E. Calunsag · BSIS 2A</p>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
