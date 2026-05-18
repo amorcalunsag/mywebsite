@@ -66,23 +66,40 @@
         </ul>
       </aside>
 
-      <div class="contact-card contact-form-card">
+            <div class="contact-card contact-form-card">
         <h2 class="contact-card-title">Send A Message</h2>
-        <form class="contact-form" id="contact-form" action="#" method="get" data-contact-email="calunsagamor@gmail.com">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
+        <form class="contact-form" 
+      action="https://api.web3forms.com/submit"
+      method="POST">
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
+  <!-- Your Access Key -->
+  <input type="hidden" 
+       name="access_key" 
+       value="17fe2c6c-e22b-4b19-9652-f2b1ee171f8e">
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+  <label for="name">Name</label>
+  <input type="text" 
+         id="name" 
+         name="name" 
+         autocomplete="name" 
+         required>
 
-          <button type="submit">Send</button>
-          <p id="success-message" style="display:none; color: green; margin-top: 10px;">
-          Message sent successfully!
-          </p>
-        </form>
+  <label for="email">Email</label>
+  <input type="email" 
+         id="email" 
+         name="email" 
+         autocomplete="email" 
+         required>
+
+  <label for="message">Message</label>
+  <textarea id="message" 
+            name="message" 
+            required 
+            placeholder="Write your message..."></textarea>
+
+  <button type="submit">Send</button>
+
+</form>
       </div>
     </div>
   </main>
@@ -93,34 +110,6 @@
   <script src="nav.js"></script>
  <script>
 document.getElementById("y").textContent = new Date().getFullYear();
-
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  var form = this;
-
-  var to = form.getAttribute("data-contact-email") || "";
-  var fromName = document.getElementById("name").value.trim();
-  var fromEmail = document.getElementById("email").value.trim();
-  var body = document.getElementById("message").value.trim();
-
-  var subject = encodeURIComponent("My Adventure Diary — message from " + fromName);
-  var mailBody = encodeURIComponent(
-    "Name: " + fromName + "\nEmail: " + fromEmail + "\n\n" + body
-  );
-
-  // 1. Open mail app FIRST
-  window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + mailBody;
-
-  // 2. Then UI updates
-  document.getElementById("success-message").style.display = "block";
-
-  form.reset();
-
-  setTimeout(() => {
-    document.getElementById("success-message").style.display = "none";
-  }, 3000);
-});
 </script>
 </body>
 </html>
